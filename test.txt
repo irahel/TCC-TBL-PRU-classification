@@ -1,0 +1,44 @@
+-----------------------------------------
+
+Initializing
+
+-----------------------------------------
+
+Initializing data feedback
+
+-----------------------------------------
+
+loaded data feedback OK
+
+-----------------------------------------
+
+Initializing data feedback
+
+-----------------------------------------
+
+loaded data train OK
+
+-----------------------------------------
+
+Initializing the train
+
+-----------------------------------------
+
+Train ended OK
+
+-----------------------------------------
+
+Evaluate the model
+BRAUBT accuracy:  0.7028582971417029 
+
+-----------------------------------------
+
+BRAUBT rules learnt:  (Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'falar')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'bom')]), Rule('036', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([1]),'VERB'), (Pos([2]),'VERB'), (Word([1]),'ver')]), Rule('012', 'AUX', 'VERB', [(Word([0]),'ter'), (Pos([1]),'NOUN')]), Rule('008', 'NAO_NAO_PRU', 'NAO_PRU', [(Word([1, 2, 3]),'novo')]), Rule('033', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([-1]),'ADV'), (Word([0]),'twitter'), (Word([1]),'ver')]), Rule('002', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([0]),'twitter'), (Word([-1]),'bem')]), Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'reclamar')]), Rule('011', 'ADJ', 'NOUN', [(Word([0]),'tweets'), (Pos([-2]),'ADV')]), Rule('012', 'NOUN', 'VERB', [(Word([0]),'louco'), (Pos([1]),'VERB')]), Rule('017', 'NOUN', 'VERB', [(Word([1]),'oq')]), Rule('008', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2, 3]),'ee')]), Rule('036', 'NAO_NAO_PRU', 'AUX', [(Pos([1]),'VERB'), (Pos([2]),'ADV'), (Word([1]),'sumido')]), Rule('006', 'AUX', 'VERB', [(Word([1, 2]),'fc')]), Rule('008', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2, 3]),'amor')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'imagina')]), Rule('032', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([-1]),'VERB'), (Word([-1]),'venho'), (Word([0]),'twitter')]), Rule('030', 'NOUN', 'VERB', [(Pos([1]),'NAO_PRU'), (Word([0]),'vida'), (Word([1]),'twitter')]), Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'dps')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'cara')]), Rule('012', 'ADJ', 'NOUN', [(Word([0]),'mano'), (Pos([1]),'NOUN')])) 
+
+-----------------------------------------
+
+BRAUBT train stats:  {'min_acc': None, 'min_score': 3, 'tokencount': 8446, 'sequencecount': 1648, 'templatecount': 37, 'rulescores': [24, 23, 6, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3], 'initialerrors': 746, 'initialacc': 0.9116741652853422, 'finalerrors': 629, 'finalacc': 0.9255268766279896} 
+
+-----------------------------------------
+
+End
