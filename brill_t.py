@@ -89,6 +89,22 @@ while(interator < len(datas[0])):
     trainer = BrillTaggerTrainer(raubt_tagger, templates)
     braubt_tagger = trainer.train(datas[0][interator], max_rules=100, min_score=3)
 
+    print("Rules and scores\n")
+    print("-----------------------------------------\n")
+
+    scores = braubt_tagger.train_stats('rulescores')
+    rules = braubt_tagger.rules()
+    rules_by_scores = []
+
+    for index in range(len(scores)):
+        rules_by_scores.append((scores[index], rules[index]))
+
+    for elem in rules_by_scores:
+        if 'PRU' in elem[1].__str__():
+            print(elem[0], elem[1].__str__())
+    
+    print("-----------------------------------------\n")
+
     print("Train ended OK\n")
     print("-----------------------------------------\n")
 
@@ -97,7 +113,7 @@ while(interator < len(datas[0])):
         
     print("-----------------------------------------\n")
     #print("BRAUBT train stats: ", braubt_tagger.train_stats(), "\n")
-    print("-----------------------------------------\n")
+    #print("-----------------------------------------\n")
     print("End interaction ", interator)
     interator += 1
     
