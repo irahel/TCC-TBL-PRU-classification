@@ -4,19 +4,15 @@ Initializing
 
 -----------------------------------------
 
-Initializing data feedback
+Initializing datas
 
 -----------------------------------------
 
-loaded data feedback OK
-
------------------------------------------
-
-Initializing data feedback
-
------------------------------------------
-
-loaded data train OK
+train percent:  80.0
+total:  2797
+train:  2237
+test:  560
+loaded datas OK
 
 -----------------------------------------
 
@@ -24,21 +20,383 @@ Initializing the train
 
 -----------------------------------------
 
+Rules and scores
+
+-----------------------------------------
+
+82 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:falar@[1]
+45 PRU->NAO_PRU if Word:ver@[1]
+23 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:fazer@[1]
+28 NAO_PRU->PRU if Word:pro@[-3,-2,-1]
+19 PRU->NAO_PRU if Word:bom@[-3,-2,-1]
+12 NAO_PRU->PRU if Pos:SCONJ@[1] & Word:twitter@[0] & Word:porque@[1]
+9 NAO_PRU->PRU if Word:editar@[1,2]
+8 NAO_PRU->PRU if Word:twitter@[0] & Pos:ADV@[1]
+7 PRU->NAO_PRU if Word:entrar@[1]
+7 NAO_PRU->PRU if Word:novo@[1,2,3]
+7 PRU->NAO_PRU if Word:bem@[-2]
+6 PRU->NAO_PRU if Pos:VERB@[1] & Pos:NOUN@[2] & Word:apagar@[1]
+5 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+5 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:entrar@[-1]
+4 PRU->NAO_PRU if Word:pai@[-2,-1]
+4 NAO_PRU->PRU if Word:sei@[1,2,3]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:venho@[-1]
+4 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:facebook@[-1]
+4 NOUN->VERB if Word:vida@[0] & Pos:PRU@[1]
+4 PRU->NAO_PRU if Word:comer@[1,2]
+4 PRU->NAO_PRU if Word:amor@[1,2,3]
+4 NAO_PRU->PRU if Word:cada@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:david@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:pessoal@[-3,-2,-1]
+4 NAO_PRU->PRU if Word:tendo@[-2,-1]
+4 NAO_PRU->PRU if Word:dias@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:sobre@[2]
+4 PRU->NAO_PRU if Word:olhar@[-3,-2,-1]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Pos:ADJ@[2] & Word:achar@[1]
+3 PRU->NAO_PRU if Word:demais@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:usar@[1]
+3 PRU->NAO_PRU if Word:obrigada@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:ee@[1,2,3]
+3 AUX->VERB if Pos:NAO_PRU@[-1] & Word:twitter@[-1] & Word:ter@[0]
+3 NAO_PRU->PRU if Word:devia@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:olhada@[-3,-2,-1]
+3 NAO_PRU->PRU if Word:conta@[-3,-2,-1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:texto@[2]
+3 PRU->NAO_PRU if Word:pedir@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:dps@[1,2,3]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Pos:NOUN@[2] & Word:seguir@[1]
+3 PRU->NAO_PRU if Word:boa@[-2]
+3 NOUN->VERB if Pos:VERB@[1] & Pos:PRU@[2] & Word:usar@[1]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Pos:PRU@[2] & Word:ficar@[1]
+5 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+3 NAO_PRU->PRU if Pos:ADV@[-1] & Pos:NOUN@[1]
+-----------------------------------------
+
 Train ended OK
 
 -----------------------------------------
 
 Evaluate the model
-BRAUBT accuracy:  0.7028582971417029 
+-----------------------------------------
+
+Test Protocol single
 
 -----------------------------------------
 
-BRAUBT rules learnt:  (Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'falar')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'bom')]), Rule('036', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([1]),'VERB'), (Pos([2]),'VERB'), (Word([1]),'ver')]), Rule('012', 'AUX', 'VERB', [(Word([0]),'ter'), (Pos([1]),'NOUN')]), Rule('008', 'NAO_NAO_PRU', 'NAO_PRU', [(Word([1, 2, 3]),'novo')]), Rule('033', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([-1]),'ADV'), (Word([0]),'twitter'), (Word([1]),'ver')]), Rule('002', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([0]),'twitter'), (Word([-1]),'bem')]), Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'reclamar')]), Rule('011', 'ADJ', 'NOUN', [(Word([0]),'tweets'), (Pos([-2]),'ADV')]), Rule('012', 'NOUN', 'VERB', [(Word([0]),'louco'), (Pos([1]),'VERB')]), Rule('017', 'NOUN', 'VERB', [(Word([1]),'oq')]), Rule('008', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2, 3]),'ee')]), Rule('036', 'NAO_NAO_PRU', 'AUX', [(Pos([1]),'VERB'), (Pos([2]),'ADV'), (Word([1]),'sumido')]), Rule('006', 'AUX', 'VERB', [(Word([1, 2]),'fc')]), Rule('008', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2, 3]),'amor')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'imagina')]), Rule('032', 'NAO_PRU', 'NAO_NAO_PRU', [(Pos([-1]),'VERB'), (Word([-1]),'venho'), (Word([0]),'twitter')]), Rule('030', 'NOUN', 'VERB', [(Pos([1]),'NAO_PRU'), (Word([0]),'vida'), (Word([1]),'twitter')]), Rule('006', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([1, 2]),'dps')]), Rule('009', 'NAO_PRU', 'NAO_NAO_PRU', [(Word([-3, -2, -1]),'cara')]), Rule('012', 'ADJ', 'NOUN', [(Word([0]),'mano'), (Pos([1]),'NOUN')])) 
+accuracy: 0.8230088495575221 
+
+recall PRU: 0.8673469387755102 
+
+recall NAO PRU: 0.7225433526011561 
+
+precision PRU:  0.8717948717948718 
+
+precision NAO PRU:  0.702247191011236 
 
 -----------------------------------------
 
-BRAUBT train stats:  {'min_acc': None, 'min_score': 3, 'tokencount': 8446, 'sequencecount': 1648, 'templatecount': 37, 'rulescores': [24, 23, 6, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3], 'initialerrors': 746, 'initialacc': 0.9116741652853422, 'finalerrors': 629, 'finalacc': 0.9255268766279896} 
+End interaction  0
+Rules and scores
 
 -----------------------------------------
 
-End
+81 PRU->NAO_PRU if Word:falar@[1]
+40 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:ver@[1]
+21 NAO_PRU->PRU if Word:pro@[-3,-2,-1]
+17 PRU->NAO_PRU if Word:twitter@[0] & Word:entrar@[1]
+17 PRU->NAO_PRU if Word:twitter@[0] & Word:fazer@[1]
+13 NAO_PRU->PRU if Pos:SCONJ@[1] & Word:twitter@[0] & Word:porque@[1]
+11 NAO_PRU->PRU if Word:editar@[1,2,3]
+9 PRU->NAO_PRU if Word:bom@[-3,-2,-1]
+10 NAO_PRU->PRU if Pos:ADJ@[1]
+10 NAO_PRU->PRU if Word:twitter@[0] & Pos:ADV@[1]
+9 NAO_PRU->PRU if Word:pro@[-3,-2,-1]
+8 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:entrar@[-1]
+7 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+6 PRU->NAO_PRU if Word:oficial@[1,2,3]
+6 PRU->NAO_PRU if Pos:VERB@[1] & Pos:NOUN@[2] & Word:apagar@[1]
+5 PRU->NAO_PRU if Word:olhar@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:amor@[1,2,3]
+4 NAO_PRU->PRU if Word:novo@[1,2,3]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:legal@[2]
+4 PRU->NAO_PRU if Word:pai@[-3,-2,-1]
+4 PRU->NAO_PRU if Pos:VERB@[-1] & Word:vim@[-1] & Word:twitter@[0]
+4 PRU->NAO_PRU if Word:david@[-3,-2,-1]
+4 NOUN->ADJ if Word:igual@[0] & Pos:PRU@[-2]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:venho@[-1]
+4 PRU->NAO_PRU if Word:comer@[1,2]
+4 PRU->NAO_PRU if Pos:AUX@[1] & Pos:NOUN@[2] & Word:ter@[1]
+4 AUX->VERB if Pos:AUX@[-2] & Pos:NAO_PRU@[-1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:tendo@[-1]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:reclamar@[1] & Word:vida@[2]
+3 NAO_PRU->PRU if Word:quero@[-2]
+3 NAO_PRU->PRU if Word:coisa@[-2,-1]
+3 PRU->NAO_PRU if Word:seguir@[1]
+3 NAO_PRU->PRU if Word:cada@[-2]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Pos:PRU@[2] & Word:ficar@[1]
+3 PRU->NAO_PRU if Pos:NAO_PRU@[-2,-1]
+3 NAO_PRU->PRU if Word:texto@[1,2,3]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:facebook@[-1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:acho@[-2]
+3 NAO_PRU->PRU if Word:dm@[-3,-2,-1]
+3 NAO_PRU->PRU if Pos:ADV@[-1] & Pos:NOUN@[1]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:bem@[-1]
+3 PRU->NAO_PRU if Word:imagina@[-2,-1]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:celular@[-2]
+3 PRU->NAO_PRU if Word:conta@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 NAO_PRU->PRU if Word:desativar@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:ee@[1,2,3]
+-----------------------------------------
+
+Train ended OK
+
+-----------------------------------------
+
+Evaluate the model
+-----------------------------------------
+
+Test Protocol single
+
+-----------------------------------------
+
+accuracy: 0.837979094076655 
+
+recall PRU: 0.8926829268292683 
+
+recall NAO PRU: 0.7012195121951219 
+
+precision PRU:  0.8735083532219571 
+
+precision NAO PRU:  0.71875 
+
+-----------------------------------------
+
+End interaction  1
+Rules and scores
+
+-----------------------------------------
+
+63 PRU->NAO_PRU if Word:falar@[1]
+30 PRU->NAO_PRU if Word:ver@[1]
+22 NAO_PRU->PRU if Word:pro@[-3,-2,-1]
+21 PRU->NAO_PRU if Word:fazer@[1]
+11 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:entrar@[1]
+11 PRU->NAO_PRU if Word:bom@[-3,-2,-1]
+9 NAO_PRU->PRU if Word:facebook@[-3,-2,-1]
+9 NAO_PRU->PRU if Word:editar@[1,2,3]
+9 NAO_PRU->PRU if Word:novo@[1,2,3]
+8 NAO_PRU->PRU if Word:twitter@[0] & Pos:SCONJ@[1]
+6 NAO_PRU->PRU if Pos:ADV@[-1] & Pos:NOUN@[1]
+5 NAO_PRU->PRU if Word:pro@[-3,-2,-1]
+5 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:seguir@[1]
+5 PRU->NAO_PRU if Pos:VERB@[1] & Pos:AUX@[2]
+5 PRU->NAO_PRU if Word:t@[1,2]
+5 PRU->NAO_PRU if Word:pedir@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:olhar@[-2,-1]
+4 PRU->NAO_PRU if Word:sair@[1,2,3]
+5 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+4 NAO_PRU->PRU if Word:cada@[-3,-2,-1]
+4 ADV->ADP if Pos:NAO_PRU@[1] & Word:aqui@[0] & Word:vir@[-1]
+4 NAO_PRU->PRU if Word:tendo@[-3,-2,-1]
+4 PRU->NAO_PRU if Word:david@[-3,-2,-1]
+4 VERB->AUX if Word:vem@[0] & Pos:PRU@[1]
+4 PRU->NAO_PRU if Word:ee@[1,2,3]
+3 NAO_PRU->PRU if Word:texto@[1,2]
+3 PRU->NAO_PRU if Word:hashtag@[-1]
+3 PRU->NAO_PRU if Word:pai@[-2,-1]
+3 PRU->NAO_PRU if Word:noite@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:reclamar@[1] & Word:vida@[2]
+3 PRU->NAO_PRU if Pos:VERB@[1] & Pos:ADJ@[2] & Word:achar@[1]
+3 VERB->AUX if Word:vir@[0] & Pos:PRU@[2]
+3 PRU->NAO_PRU if Word:dps@[1,2]
+3 NAO_PRU->PRU if Word:devia@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:entrar@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 PRU->NAO_PRU if Word:imagina@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:comer@[1,2]
+3 NOUN->VERB if Word:vida@[0] & Pos:PRU@[1]
+3 PRU->NAO_PRU if Pos:VERB@[-1] & Word:apagar@[-1] & Word:twitter@[0]
+3 NAO_PRU->PRU if Word:dm@[-3,-2,-1]
+3 NOUN->ADJ if Word:igual@[0] & Pos:PRU@[-2]
+3 PRU->NAO_PRU if Word:fala@[-2,-1]
+3 NAO_PRU->PRU if Word:deus@[-2,-1]
+3 NAO_PRU->PRU if Word:coisa@[-2,-1]
+-----------------------------------------
+
+Train ended OK
+
+-----------------------------------------
+
+Evaluate the model
+-----------------------------------------
+
+Test Protocol single
+
+-----------------------------------------
+
+accuracy: 0.8450704225352113 
+
+recall PRU: 0.9287671232876712 
+
+recall NAO PRU: 0.6945812807881774 
+
+precision PRU:  0.8349753694581281 
+
+precision NAO PRU:  0.834319526627219 
+
+-----------------------------------------
+
+End interaction  2
+Rules and scores
+
+-----------------------------------------
+
+76 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:falar@[1]
+36 PRU->NAO_PRU if Word:twitter@[0] & Word:ver@[1]
+24 NAO_PRU->PRU if Word:pro@[-1]
+16 PRU->NAO_PRU if Word:fazer@[1]
+16 PRU->NAO_PRU if Word:entrar@[1,2,3]
+14 NAO_PRU->PRU if Pos:SCONJ@[1]
+13 PRU->NAO_PRU if Word:bom@[-3,-2,-1]
+12 NAO_PRU->PRU if Word:novo@[1,2,3]
+12 NAO_PRU->PRU if Word:twitter@[0] & Pos:ADV@[1]
+9 NAO_PRU->PRU if Word:editar@[1,2,3]
+7 NAO_PRU->PRU if Word:pro@[-1]
+5 PRU->NAO_PRU if Word:twitter@[0] & Word:seguir@[1]
+5 PRU->NAO_PRU if Word:achar@[1,2]
+5 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:entrar@[-1]
+5 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+5 PRU->NAO_PRU if Pos:VERB@[1] & Pos:NOUN@[2] & Word:apagar@[1]
+4 PRU->NAO_PRU if Word:twitter@[0] & Word:bem@[-2]
+5 NAO_PRU->PRU if Word:facebook@[-2,-1]
+4 PRU->NAO_PRU if Word:olhar@[-3,-2,-1]
+4 NAO_PRU->PRU if Word:tendo@[-2,-1]
+4 PRU->NAO_PRU if Word:oficial@[1,2,3]
+4 NAO_PRU->PRU if Word:cada@[-3,-2,-1]
+4 NAO_PRU->PRU if Pos:PROPN@[-2,-1]
+4 NAO_PRU->PRU if Pos:ADV@[-1] & Pos:NOUN@[1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:ter@[-1]
+3 NAO_PRU->PRU if Word:texto@[1,2,3]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:volta@[-1]
+3 PRU->NAO_PRU if Word:gente@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 NOUN->VERB if Pos:PRU@[1] & Word:vida@[0] & Word:twitter@[1]
+3 NAO_PRU->PRU if Pos:AUX@[1] & Pos:VERB@[2]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:obrigada@[-2]
+3 PRU->NAO_PRU if Word:noite@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:legal@[2]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:sobre@[2]
+3 PRU->NAO_PRU if Word:fala@[-2,-1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:fazer@[1] & Word:igual@[2]
+-----------------------------------------
+
+Train ended OK
+
+-----------------------------------------
+
+Evaluate the model
+-----------------------------------------
+
+Test Protocol single
+
+-----------------------------------------
+
+accuracy: 0.8444055944055944 
+
+recall PRU: 0.9404145077720207 
+
+recall NAO PRU: 0.6451612903225806 
+
+precision PRU:  0.8383371824480369 
+
+precision NAO PRU:  0.8391608391608392 
+
+-----------------------------------------
+
+End interaction  3
+Rules and scores
+
+-----------------------------------------
+
+75 PRU->NAO_PRU if Pos:VERB@[-1] & Pos:VERB@[1]
+29 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:falar@[1]
+23 NAO_PRU->PRU if Word:pro@[-2,-1]
+15 PRU->NAO_PRU if Word:twitter@[0] & Word:ver@[1]
+13 NAO_PRU->PRU if Pos:VERB@[-1] & Word:twitter@[0] & Word:ficar@[1]
+12 PRU->NAO_PRU if Word:bom@[-3,-2,-1]
+12 NAO_PRU->PRU if Pos:ADV@[1]
+10 NAO_PRU->PRU if Word:novo@[1,2,3]
+9 NAO_PRU->PRU if Word:twitter@[0] & Pos:SCONJ@[1]
+9 PRU->NAO_PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:fazer@[1]
+11 NAO_PRU->PRU if Word:twitter@[0] & Word:pro@[-1]
+7 PRU->NAO_PRU if Pos:NAO_PRU@[-3,-2,-1]
+7 NAO_PRU->PRU if Word:editar@[1,2,3]
+6 NAO_PRU->PRU if Word:falta@[-2,-1]
+5 PRU->NAO_PRU if Word:twitter@[0] & Word:seguir@[1]
+5 NAO_PRU->PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:faz@[1]
+5 NAO_PRU->PRU if Word:tendo@[-2,-1]
+5 NAO_PRU->PRU if Word:hoje@[-3,-2,-1]
+5 NAO_PRU->PRU if Pos:ADV@[-1] & Pos:NOUN@[1]
+4 PRU->NAO_PRU if Word:ee@[1,2,3]
+4 NAO_PRU->PRU if Word:twitter@[0] & Word:lindo@[1]
+4 PRU->NAO_PRU if Pos:VERB@[1] & Pos:NOUN@[2] & Word:entrar@[1]
+4 PRU->NAO_PRU if Pos:VERB@[1] & Pos:AUX@[2]
+4 NAO_PRU->PRU if Pos:VERB@[1] & Word:twitter@[0] & Word:usar@[-1]
+4 PRU->NAO_PRU if Word:noite@[-3,-2,-1]
+4 NOUN->VERB if Word:vida@[0] & Pos:PRU@[1]
+4 PRU->NAO_PRU if Word:amor@[1,2,3]
+4 PRU->NAO_PRU if Word:bem@[-2,-1]
+3 NAO_PRU->PRU if Word:twitter@[0] & Word:quero@[-2]
+3 NAO_PRU->PRU if Pos:VERB@[-1] & Word:verificada@[-1] & Word:twitter@[0]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:ficar@[1] & Word:twitter@[2]
+3 NAO_PRU->PRU if Word:mudar@[1,2]
+3 PRU->NAO_PRU if Word:facebook@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 PRU->NAO_PRU if Pos:VERB@[-1] & Pos:NAO_PRU@[-2]
+3 PRU->NAO_PRU if Word:dps@[1,2,3]
+3 NAO_PRU->PRU if Word:igual@[2]
+3 PRU->NAO_PRU if Word:falando@[1,2,3]
+3 PRU->NAO_PRU if Word:pessoal@[-2,-1]
+3 PRU->NAO_PRU if Word:t@[1,2]
+3 NAO_PRU->PRU if Word:carregar@[1,2]
+3 PRU->NAO_PRU if Word:twitter@[0] & Word:reclamar@[1] & Word:vida@[2]
+3 PRU->NAO_PRU if Word:pai@[-3,-2,-1]
+3 PRU->NAO_PRU if Word:entrar@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 VERB->AUX if Word:ser@[0] & Pos:NAO_PRU@[1]
+3 PRU->NAO_PRU if Word:obrigada@[-2]
+3 NOUN->VERB if Word:facebook@[0] & Pos:NAO_PRU@[-2]
+3 PRU->NAO_PRU if Word:conta@[-1] & Word:twitter@[0] & Word:ficar@[1]
+3 NAO_PRU->PRU if Word:vc@[1,2,3]
+-----------------------------------------
+
+Train ended OK
+
+-----------------------------------------
+
+Evaluate the model
+-----------------------------------------
+
+Test Protocol single
+
+-----------------------------------------
+
+accuracy: 0.8347978910369068 
+
+recall PRU: 0.8903061224489796 
+
+recall NAO PRU: 0.711864406779661 
+
+precision PRU:  0.8660049627791563 
+
+precision NAO PRU:  0.7325581395348837 
+
+-----------------------------------------
+
+End interaction  4
+-----------------------------------------
+
+END
+-----------------------------------------
+
+Total Accuracy cross 0.8370523703223778
+Total Recall PRU cross 0.90390352382269
+Total Recall NAO PRU cross 0.6950739685373394
+Total Precision PRU cross 0.8569241479404301
+Total Precision NAO PRU cross 0.7654071392668356

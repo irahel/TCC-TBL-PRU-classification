@@ -25,6 +25,8 @@ class Csv_utils:
                     item1 += item
                 else:
                     item2 += item        
+        #print("item1 " +item1)
+        #print("item2 " +item2)
         return (item1, item2)
 
     #cria cada lista referente a linha
@@ -41,7 +43,30 @@ class Csv_utils:
                 list_re.append(self.create_tuple(str_als[initial_index:end_index]))
             atual += 1
         return list_re
-       
+
+    #cria cada lista referente a linha (versão naive bayes)
+    def create_list_naive(self, str_als):
+        is_pru = False
+        list_re = []
+        initial_index = 0
+        end_index = 0
+        atual = 0
+        for item in str_als:
+            if item == '(':
+                initial_index = atual
+            elif item == ')':
+                end_index = atual
+                tuple_analize = self.create_tuple(str_als[initial_index:end_index]) 
+                if tuple_analize[0] == "twitter":
+                    is_pru = (tuple_analize[1] == "PRU")                
+                list_re.append(tuple_analize[0])
+            atual += 1
+            if is_pru:
+                return_class = "PRU"
+            else:
+                return_class = "NAO_PRU"
+        return (list_re, return_class)
+     
     #inicia as bases
     def init_data(self, arch_name, folds = 5):
         data = []
@@ -58,5 +83,12 @@ class Csv_utils:
              #       print(sub)
         
         return cross_v_handler.create_folds(folds, data)                        
-                                                                       
-        
+
+    def init_data_naive(self, arch_name, folds = 5):
+        data = []
+
+        with open(arch_name, 'r') as csvfile:
+            for row in csvfile:
+                data.append(self.create_list_naive(row))
+
+        return data                                                            
