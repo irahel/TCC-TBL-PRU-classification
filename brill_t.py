@@ -25,6 +25,13 @@ else:
     datas = csv_handler.init_data('alldata.csv')    
 
 
+for item in datas:
+    for sub in item:
+        for subsub in sub:            
+            print(subsub)
+
+
+
 #print("--------------")
 #print(type(datas))
 #print(len(datas))

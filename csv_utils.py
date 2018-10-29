@@ -1,4 +1,9 @@
 from cross_v import Cross_v
+from nltk.corpus import stopwords
+from string import punctuation, digits
+import re
+from nltk.stem import RSLPStemmer
+from nltk.tokenize import word_tokenize
 
 class Csv_utils:
     #cria cada tupla da linha
@@ -35,12 +40,29 @@ class Csv_utils:
         initial_index = 0
         end_index = 0
         atual = 0
+
+        #to remove noise
+        pt_stopwords = stopwords.words('portuguese')
+        punctuations = list(punctuation)
+        remove_digits = str.maketrans('', '', digits)
+        stemmer = RSLPStemmer()
+
+
+
         for item in str_als:
             if item == '(':
                 initial_index = atual
             elif item == ')':
                 end_index = atual
-                list_re.append(self.create_tuple(str_als[initial_index:end_index]))
+                tuple_analize = self.create_tuple(str_als[initial_index:end_index])                 
+                if not tuple_analize[0] == "twitter":
+                    x = tuple_analize[0]
+                    x = x.translate(remove_digits)
+                    x = re.sub(r'\W+', ' ', x)
+                    final_sentence = [stemmer.stem(x) for x in word_tokenize(x.lower(), 'portuguese') if x not in pt_stopwords and x not in punctuations]
+                    antique = tuple_analize[1]
+                    tuple_analize = (str(final_sentence), antique)
+                list_re.append(tuple_analize)
             atual += 1
         return list_re
 
@@ -51,14 +73,17 @@ class Csv_utils:
         initial_index = 0
         end_index = 0
         atual = 0
+
+        
+
         for item in str_als:
             if item == '(':
                 initial_index = atual
             elif item == ')':
                 end_index = atual
-                tuple_analize = self.create_tuple(str_als[initial_index:end_index]) 
+                tuple_analize = self.create_tuple(str_als[initial_index:end_index])                 
                 if tuple_analize[0] == "twitter":
-                    is_pru = (tuple_analize[1] == "PRU")                
+                    is_pru = (tuple_analize[1] == "PRU")                                
                 list_re.append(tuple_analize[0])
             atual += 1
             if is_pru:
