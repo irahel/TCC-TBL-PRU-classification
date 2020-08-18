@@ -1,3 +1,5 @@
+#Para classificar com o Naive Bayes
+
 import numpy as np
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer

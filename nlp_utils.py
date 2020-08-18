@@ -14,19 +14,13 @@ class Nlp_utils:
                 list_3_index = 0
                 while(list_3_index < len(copy_[list_1_index][list_2_index])):                    
                     if(copy_[list_1_index][list_2_index][list_3_index][0] == 'twitter'):
-                        #print(copy_[list_1_index][list_2_index])
-                        #print(copy_[list_1_index][list_2_index][list_3_index])
                         copy_[list_1_index][list_2_index][list_3_index] = ('twitter', 'NAO_PRU')            
-                        #print(copy_[list_1_index][list_2_index][list_3_index])
-                        #print(copy_[list_1_index][list_2_index])
-                        #return
                     list_3_index += 1                                    
                 list_2_index += 1                                
-            list_1_index +=1
-        
-    
+            list_1_index +=1            
         return copy_
 
+#tagger
     def backoff_tagger(self, tagged_sents, tagger_classes, backoff=None):
         if not backoff:
             backoff = tagger_classes[0](tagged_sents)

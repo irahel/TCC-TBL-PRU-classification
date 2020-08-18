@@ -29,7 +29,8 @@ class Csv_utils:
                 if inited and not half_completed:
                     item1 += item
                 else:
-                    item2 += item        
+                    item2 += item    
+        #Para testar oque esta sendo criado    
         #print("item1 " +item1)
         #print("item2 " +item2)
         return (item1, item2)
@@ -42,12 +43,11 @@ class Csv_utils:
         atual = 0
 
         #to remove noise
+        #Removedor de digitos/pontuacao/stopwords
         pt_stopwords = stopwords.words('portuguese')
         punctuations = list(punctuation)
         remove_digits = str.maketrans('', '', digits)
         stemmer = RSLPStemmer()
-
-
 
         for item in str_als:
             if item == '(':
@@ -73,9 +73,7 @@ class Csv_utils:
         initial_index = 0
         end_index = 0
         atual = 0
-
         
-
         for item in str_als:
             if item == '(':
                 initial_index = atual
@@ -102,11 +100,6 @@ class Csv_utils:
                 
         cross_v_handler = Cross_v()
     
-        #for item in data:
-            ##for sub in item:
-                #if sub[0] == 'twitter':
-             #       print(sub)
-        
         return cross_v_handler.create_folds(folds, data)                        
 
     def init_data_naive(self, arch_name, folds = 5):
