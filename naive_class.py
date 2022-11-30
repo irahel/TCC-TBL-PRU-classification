@@ -12,7 +12,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
-import re, sys    
+import re, sys
 from csv_utils import Csv_utils
 
 #Initializating
@@ -37,10 +37,7 @@ else:
     datas = csv_handler.init_data_naive('alldata.csv')    
 
 #Setting clss
-classification = []
-
-for elem in datas:
-    classification.append(elem[1])
+classification = [elem[1] for elem in datas]
 
 #Sentences and words
 all_sentences = []
@@ -48,11 +45,8 @@ all_words = []
 
 #Clean sentence
 for sentence in datas:    
-    x = ""
-    
-    for item in sentence[0]:
-        x += item + " "
-            
+    x = "".join(f"{item} " for item in sentence[0])
+
     x = x.translate(remove_digits)
     x = re.sub(r'\W+', ' ', x)
     final_sentence = [stemmer.stem(x) for x in word_tokenize(x.lower(), 'portuguese') if x not in pt_stopwords and x not in punctuations]
@@ -60,9 +54,7 @@ for sentence in datas:
 
 #Setting words
 for sentence in all_sentences:
-    for word in sentence:
-        all_words.append(word)
-
+    all_words.extend(iter(sentence))
 #Frequents words
 most_frequents_words = FreqDist(all_words)
 
