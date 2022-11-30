@@ -45,34 +45,34 @@ class SpamDetector(object):
         return word_counts
 
     def fit(self, X, Y):
-        """Fit our classifier
+    	"""Fit our classifier
         Arguments:
             X {list} -- list of document contents
             y {list} -- correct labels
         """
-        self.num_messages = {}
-        self.log_class_priors = {}
-        self.word_counts = {}
-        self.vocab = set()
+    	self.num_messages = {}
+    	self.log_class_priors = {}
+    	self.word_counts = {}
+    	self.vocab = set()
 
-        n = len(X)
-        self.num_messages['spam'] = sum(1 for label in Y if label == 1)
-        self.num_messages['ham'] = sum(1 for label in Y if label == 0)
-        self.log_class_priors['spam'] = math.log(self.num_messages['spam'] / n)
-        self.log_class_priors['ham'] = math.log(self.num_messages['ham'] / n)
-        self.word_counts['spam'] = {}
-        self.word_counts['ham'] = {}
+    	n = len(X)
+    	self.num_messages['spam'] = sum(label == 1 for label in Y)
+    	self.num_messages['ham'] = sum(label == 0 for label in Y)
+    	self.log_class_priors['spam'] = math.log(self.num_messages['spam'] / n)
+    	self.log_class_priors['ham'] = math.log(self.num_messages['ham'] / n)
+    	self.word_counts['spam'] = {}
+    	self.word_counts['ham'] = {}
 
-        for x, y in zip(X, Y):
-            c = 'spam' if y == 1 else 'ham'
-            counts = self.get_word_counts(self.tokenize(x))
-            for word, count in counts.items():
-                if word not in self.vocab:
-                    self.vocab.add(word)
-                if word not in self.word_counts[c]:
-                    self.word_counts[c][word] = 0.0
+    	for x, y in zip(X, Y):
+    	    c = 'spam' if y == 1 else 'ham'
+    	    counts = self.get_word_counts(self.tokenize(x))
+    	    for word, count in counts.items():
+    	        if word not in self.vocab:
+    	            self.vocab.add(word)
+    	        if word not in self.word_counts[c]:
+    	            self.word_counts[c][word] = 0.0
 
-                self.word_counts[c][word] += count
+    	        self.word_counts[c][word] += count
 
     def predict(self, X):
         result = []
@@ -82,7 +82,7 @@ class SpamDetector(object):
             ham_score = 0
             for word, _ in counts.items():
                 if word not in self.vocab: continue
-                
+
                 # add Laplace smoothing
                 log_w_given_spam = math.log( (self.word_counts['spam'].get(word, 0.0) + 1) / (self.num_messages['spam'] + len(self.vocab)) )
                 log_w_given_ham = math.log( (self.word_counts['ham'].get(word, 0.0) + 1) / (self.num_messages['ham'] + len(self.vocab)) )
@@ -101,12 +101,12 @@ class SpamDetector(object):
         
 
 if __name__ == '__main__':
-    X, y = get_data(DATA_DIR)
-    MNB = SpamDetector()
-    MNB.fit(X[100:], y[100:])
+	X, y = get_data(DATA_DIR)
+	MNB = SpamDetector()
+	MNB.fit(X[100:], y[100:])
 
-    pred = MNB.predict(X[:100])
-    true = y[:100]
+	pred = MNB.predict(X[:100])
+	true = y[:100]
 
-    accuracy = sum(1 for i in range(len(pred)) if pred[i] == true[i]) / float(len(pred))
-    print("{0:.4f}".format(accuracy))
+	accuracy = sum(pred[i] == true[i] for i in range(len(pred))) / float(len(pred))
+	print("{0:.4f}".format(accuracy))

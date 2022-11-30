@@ -81,14 +81,14 @@ print("-----------------------------------------\n")
 results = []
 interator = 0
 #Rodar o tbl para cada fold
-while(interator < len(datas[0])):    
+while (interator < len(datas[0])):    
     #Treina o TBL com cada linha da variavel "datas"
     raubt_tagger = nlp_handler.backoff_tagger(datas[0][interator], [nltk.tag.AffixTagger,
         nltk.tag.UnigramTagger, nltk.tag.BigramTagger, nltk.tag.TrigramTagger],
         backoff=nltk.tag.RegexpTagger(word_patterns))
 
     templates = brill.fntbl37()
-    
+
     trainer = BrillTaggerTrainer(raubt_tagger, templates)
     braubt_tagger = trainer.train(datas[0][interator], max_rules=100, min_score=3)
 
@@ -97,16 +97,15 @@ while(interator < len(datas[0])):
 
     scores = braubt_tagger.train_stats('rulescores')
     rules = braubt_tagger.rules()
-    rules_by_scores = []
+    rules_by_scores = [
+        (scores[index], rules[index]) for index in range(len(scores))
+    ]
 
-    #Aprende e guarda as regras para proxima iteracao
-    for index in range(len(scores)):
-        rules_by_scores.append((scores[index], rules[index]))
 
     for elem in rules_by_scores:
         if 'PRU' in elem[1].__str__():
             print(elem[0], elem[1].__str__())
-    
+
     print("-----------------------------------------\n")
     print("Train ended OK\n")
     print("-----------------------------------------\n")
@@ -117,7 +116,7 @@ while(interator < len(datas[0])):
     print("-----------------------------------------\n")
     print("End interaction ", interator)
     interator += 1
-    
+
 #Tirar a media
 #index
 #0 = Accuracy

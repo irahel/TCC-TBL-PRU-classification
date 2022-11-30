@@ -14,14 +14,14 @@ class Test_protocol:
 
     def test(self, context, gold):                
         re_tagged_sents = context.tag_sents(untag(sent) for sent in gold)
-        
+
         #Variaveis para contar as ocorrencias de PRUS e NAO PRUS
 
         #Quantidade de sentencas classificadas como PRU pelo TBL
-        my_classf_pru   = 0 
+        my_classf_pru   = 0
         #Quantidade de sentencas classificadas como NAO PRU pelo TBL
         my_classf_npru  = 0 
-        
+
         #Quantidade de sentencas classificadas CORRETAMENTE como PRU pelo TBL
         classf_pru      = 0
         #Quantidade de sentencas classificadas CORRETAMENTE como NAO PRU pelo TBL
@@ -31,18 +31,16 @@ class Test_protocol:
         true_pru        = 0
         #Quantidade de sentecas que NAO PRUS PRESENTES na base (retiradas da base de teste)
         true_npru       = 0
-        
-        interator_index_1 = 0
-        while(interator_index_1 < len(re_tagged_sents)):
-            interator_index_2 = 0
-            while(interator_index_2 < len(re_tagged_sents[interator_index_1])):          
+
+        for interator_index_1 in range(len(re_tagged_sents)):
+            for interator_index_2 in range(len(re_tagged_sents[interator_index_1])):  
                 #TRUE PRU AND N PRUS
                 if gold[interator_index_1][interator_index_2][0] == 'twitter':                                                           
                     if gold[interator_index_1][interator_index_2][1] == 'PRU':
                         true_pru += 1
                     elif gold[interator_index_1][interator_index_2][1] == 'NAO_PRU':                        
                         true_npru += 1
-                        
+
                 #CORRECT CLASSIFICATION PRU AND N PRUS
                 if re_tagged_sents[interator_index_1][interator_index_2][0] == 'twitter':                                                           
                     if re_tagged_sents[interator_index_1][interator_index_2][1] == 'PRU':                        
@@ -57,25 +55,21 @@ class Test_protocol:
                         if gold[interator_index_1][interator_index_2][1] == 'NAO_PRU':
                             #print("true nao pru")
                             classf_npru += 1
-                            
-                interator_index_2 += 1                        
-            interator_index_1 += 1
-            
+
         #Escreve os resultados do teste na lista "test" e retorna
         #5 length vec
-        test = []
-        test.append(self.accuracy(classf_pru, classf_npru, true_pru, true_npru))
+        test = [self.accuracy(classf_pru, classf_npru, true_pru, true_npru)]
         test.append(self.recall(classf_pru, true_pru))
         test.append(self.recall(classf_npru, true_npru))
         test.append(self.precision(classf_pru, my_classf_pru))
-        test.append(self.precision(classf_npru, my_classf_npru))        
+        test.append(self.precision(classf_npru, my_classf_npru))
         print("-----------------------------------------\n")
         print("Test Protocol single\n")
         print("-----------------------------------------\n")
-        print("accuracy:", test[0],"\n")        
+        print("accuracy:", test[0],"\n")
         print("recall PRU:", test[1] ,"\n")
-        print("recall NAO PRU:", test[2] ,"\n")    
-        print("precision PRU: ", test[3],"\n")    
+        print("recall NAO PRU:", test[2] ,"\n")
+        print("precision PRU: ", test[3],"\n")
         print("precision NAO PRU: ", test[4],"\n")    
-        
+
         return test
